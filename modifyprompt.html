@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with Multi-Color Gradient Background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(
+                135deg, 
+                #ff6f61, /* Coral Red */
+                #ffcc00, /* Gold */
+                #2e004f, /* Dark Purple */
+                #004e92, /* Sky Blue */
+                #000080, /* Navy Blue */
+                #66ff66 /* Lime Green */
+            );
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s infinite ease-in-out;
+            overflow: hidden;
+
+            background-image: 
+                url('https://www.transparenttextures.com/patterns/dark-matter.png'),
+                linear-gradient(
+                    135deg, 
+                    #ff6f61, 
+                    #ffcc00, 
+                    #2e004f, 
+                    #004e92, 
+                    #000080, 
+                    #66ff66
+                );
+            background-blend-mode: overlay;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.85); 
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: white; 
+            font-size: 36px; 
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            padding-left: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        label {
+            position: absolute;
+            left: 20px;
+            top: 12px;
+            font-size: 16px;
+            color: #888;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: -12px;
+            font-size: 12px;
+            color: #4CAF50;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #clickBtn {
+            background-color: #388E3C;
+        }
+
+        #clickBtn:hover {
+            background-color: #2e7d32;
+            transform: scale(1.05);
+        }
+
+        #registerBtn {
+            background: none;
+            border: none;
+            color: #66BB6A;
+            text-decoration: underline;
+            font-size: 16px;
+            padding: 0;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        #registerBtn:hover {
+            color: #81C784;
+            transform: scale(1.05);
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="text" id="username" placeholder=" " required>
+                <label for="username">Username</label>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+
+            <div>
+                <button type="button" id="clickBtn" onclick="handleClick()">Login</button>
+            </div>
+        </form>
+
+        <button type="button" id="registerBtn" ondblclick="handleRegisterDoubleClick()">Register</button>
+    </div>
+
+    <script>
+        function handleClick() {
+            const username = document.getElementById('username').value;
+            if (username) {
+                alert('Most Welcome, ' + username + '!');
+            } else {
+                alert('Please enter your username!');
+            }
+        }
+
+        function handleRegisterDoubleClick() {
+            alert('Please follow the registration steps.');
+        }
+    </script>
+
+</body>
+</html>
